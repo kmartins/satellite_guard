@@ -4,15 +4,15 @@ This project was developed in [Flutter](https://flutter.dev/) for the challenge 
 
 ## Features
 
-- Information of the debris and satellites;
-- View debris and satellites on the map in real-time;
+- Information of the space trash and the satellites;
+- View the space trash and the satellites in your orbit on the map in real-time;
 - Probability of collision satellite with the space trash.
 ## Screenshots
 
 ## Team
 
 <p align="center">
-<img src="assets/Ifnito.png" alt="drawing" width="100"/>
+<img src="assets/Ifnito.png" alt="team" width="100"/>
 </p>
 
 - [Gian Eric do Nascimento Rocha](https://github.com/gianeric)
