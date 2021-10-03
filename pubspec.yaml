@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_modular: ^4.1.0+1
+  flutter_triple: ^1.2.4+3
 
 dev_dependencies:
   flutter_test:

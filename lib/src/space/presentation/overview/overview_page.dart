@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:space_trash/src/space/presentation/object/space_object_page.dart';
+import 'package:space_trash/src/space/presentation/overview/store/overview_store.dart';
 
 import 'widgets/custom_search_delegate.dart';
 import 'widgets/filter_dialog.dart';
 
-class OverviewPage extends StatelessWidget {
+class OverviewPage extends StatefulWidget {
   const OverviewPage({Key? key}) : super(key: key);
+
+  @override
+  _OverviewPageState createState() => _OverviewPageState();
+}
+
+class _OverviewPageState extends State<OverviewPage> {
+  final store = Modular.get<OverviewStore>();
+
+  @override
+  void initState() {
+    store.getAllEntities();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
