@@ -17,7 +17,7 @@ This project was developed in [Flutter](https://flutter.dev/) for the challenge 
 
 ## Install app on Android
 
-Install release.apk which is in the root folder
+Install `release.apk` which is in the root folder
 
 ## Team
 
