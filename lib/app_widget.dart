@@ -7,7 +7,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Space Trash',
+      title: 'Satellite Guard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.from(
         colorScheme: const ColorScheme.dark(
