@@ -9,6 +9,8 @@ This project was developed in [Flutter](https://flutter.dev/) for the challenge 
 - Probability of collision satellite with the space trash.
 ## Screenshots
 
+[App](/assets/app.png)
+
 ## Team
 
 <p align="center">
