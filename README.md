@@ -17,7 +17,7 @@ This project was developed in [Flutter](https://flutter.dev/) for the challenge 
 
 ## Install app on Android
 
-Install `release.apk` which is in the root folder
+Install `app-release.apk` which is in the root folder
 
 ## Team
 
@@ -30,3 +30,7 @@ Install `release.apk` which is in the root folder
 - [Edilson José de Novaes Junior](https://github.com/edilsonnovaes)
 - [Luiz Gustavo Cunha Ederli](https://github.com/luizgce)
 - [Lucas Náiade](https://github.com/lucasnsa)
+
+<p align="center">
+<em>"Swerve small debris and avoiding major accidents so that humanity can one day become intergalytic"</em>
+</p>
