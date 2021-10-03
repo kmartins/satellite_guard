@@ -6,7 +6,7 @@ This project was developed in [Flutter](https://flutter.dev/) for the challenge 
 
 - Information of the debris and satellites;
 - View debris and satellites on the map in real-time;
-- Collision probability.
+- Probability of collision satellite with the space trash.
 ## Screenshots
 
 ## Team
