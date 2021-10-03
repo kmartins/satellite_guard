@@ -35,6 +35,7 @@ class _ListItemWidgetState extends State<ListItemWidget> {
           MaterialPageRoute(
             builder: (_) => SpaceObjectDetail(
               title: widget.obj.name,
+              obj: widget.obj,
             ),
           ),
         );

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:space_trash/src/space/domain/entities/space_object.dart';
+import 'package:space_trash/src/space/presentation/object_detail/space_object_map.dart';
 import 'package:space_trash/src/space/presentation/overview/store/overview_store.dart';
 
 class SpaceObjectDetail extends StatelessWidget {
   final store = Modular.get<OverviewStore>();
+  final SpaceObject obj;
   final String title;
   SpaceObjectDetail({
     required this.title,
     Key? key,
+    required this.obj,
   }) : super(key: key);
 
   @override
@@ -18,44 +22,53 @@ class SpaceObjectDetail extends StatelessWidget {
         title: Text(title),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => SpaceObjectMap(
+                title: title,
+              ),
+            ),
+          );
+        },
         label: const Text('View'),
         icon: const Icon(FeatherIcons.map),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
-          children: const <Widget>[
+          children: <Widget>[
             _Information(
               title: 'Norad',
-              description: '33757',
+              description: obj.norad,
               secondTitle: 'Int. Designator.',
-              secondDescription: '1993-036E',
+              secondDescription: obj.designator,
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             _Information(
               title: 'Period(min)',
-              description: '100,55',
+              description: obj.period,
               secondTitle: 'Inclination(degrees)',
-              secondDescription: '74,04',
+              secondDescription: obj.inclination,
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             _Information(
               title: 'Apogee Height(km)',
-              description: '796',
+              description: obj.apogee,
               secondTitle: 'Perigee(km)',
-              secondDescription: '773',
+              secondDescription: obj.perigee,
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             _Information(
-              title: 'Exxentricity',
-              description: '0,00016150',
+              title: 'Exentricity',
+              description: obj.exentricity,
             ),
           ],
         ),
