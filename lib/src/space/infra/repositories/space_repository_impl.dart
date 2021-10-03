@@ -9,8 +9,8 @@ class SpaceRepositoryImpl implements SpaceRepository {
   SpaceRepositoryImpl(this._dataSource);
 
   @override
-  Future<List<SpaceEntity>> getAllSpaceEntities() {
-    return _dataSource.showSpaceEntity();
+  Future<List<SpaceEntity>> getAllSpaceEntities({Type? byType}) {
+    return _dataSource.showSpaceEntity(byType: byType);
   }
 
   @override

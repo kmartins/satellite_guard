@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_triple/flutter_triple.dart';
+import 'package:space_trash/src/space/domain/entities/space_entity.dart';
 import 'package:space_trash/src/space/presentation/object/space_object_page.dart';
 import 'package:space_trash/src/space/presentation/overview/store/overview_store.dart';
 
@@ -57,42 +59,66 @@ class _OverviewPageState extends State<OverviewPage> {
             ),
           ],
         ),
-        body: TabBarView(
-          children: [
-            ListView.separated(
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Row(
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: [
-                      Expanded(child: Text('Starlink')),
-                      Text(
-                        '451 debris',
-                        style: Theme.of(context).textTheme.caption,
-                      )
-                    ],
-                  ),
-                  subtitle: Text('Satellite'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => SpaceObjectPage(
-                          title: 'Starlink',
-                        ),
+        body: ScopedBuilder<OverviewStore, Exception, List<SpaceEntity>>(
+          store: store,
+          onLoading: (context) => const Center(
+            child: CircularProgressIndicator.adaptive(),
+          ),
+          onState: (context, state) {
+            return TabBarView(
+              children: [
+                ListView.separated(
+                  itemBuilder: (context, index) {
+                    final entity = state[index];
+                    return ListTile(
+                      title: Row(
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        textBaseline: TextBaseline.alphabetic,
+                        children: [
+                          Expanded(child: Text(entity.name)),
+                          Text(
+                            '${entity.spaceObjects.length} debris',
+                            style: Theme.of(context).textTheme.caption,
+                          )
+                        ],
                       ),
+                      subtitle: Text(typeToString(entity.type)),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => SpaceObjectPage(
+                              title: entity.name,
+                            ),
+                          ),
+                        );
+                      },
                     );
                   },
-                );
-              },
-              separatorBuilder: (_, __) => const Divider(),
-              itemCount: 10,
-            ),
-            Icon(Icons.directions_transit),
-          ],
+                  separatorBuilder: (_, __) => const Divider(),
+                  itemCount: state.length,
+                ),
+                const Icon(Icons.directions_transit),
+              ],
+            );
+          },
         ),
       ),
     );
+  }
+
+  String typeToString(Type type) {
+    switch (type) {
+      case Type.active:
+        return 'Satellite';
+      case Type.dead:
+        return 'Dead';
+      case Type.debris:
+        return 'Debris';
+      case Type.spaceBody:
+        return 'Space Body';
+      default:
+        return 'Satellite';
+    }
   }
 }

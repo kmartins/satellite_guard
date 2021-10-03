@@ -56,9 +56,13 @@ final mockList = [
 
 class CelestekDataSource implements SpaceDataSource {
   @override
-  Future<List<SpaceEntity>> showSpaceEntity() async {
+  Future<List<SpaceEntity>> showSpaceEntity({Type? byType}) async {
     await Future.delayed(const Duration(milliseconds: 500));
-    return mockList.where((element) => true).toList();
+    if (byType != null) {
+      return mockList.where((element) => element.type == byType).toList();
+    } else {
+      return mockList.where((element) => true).toList();
+    }
   }
 
   @override

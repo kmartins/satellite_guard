@@ -15,4 +15,8 @@ class OverviewStore extends StreamStore<Exception, List<SpaceEntity>> {
     update(listEntity);
     setLoading(false);
   }
+
+  SpaceEntity entityFromName(String name) {
+    return state.firstWhere((element) => element.name.contains(name));
+  }
 }

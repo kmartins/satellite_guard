@@ -2,7 +2,7 @@ import 'package:space_trash/src/space/domain/entities/space_entity.dart';
 import 'package:space_trash/src/space/domain/repositories/space_repository.dart';
 
 mixin GetAllSpaceEntities {
-  Future<List<SpaceEntity>> call();
+  Future<List<SpaceEntity>> call({Type? byType});
 }
 
 class GetAllSpaceEntitiesImpl implements GetAllSpaceEntities {
@@ -13,5 +13,6 @@ class GetAllSpaceEntitiesImpl implements GetAllSpaceEntities {
   );
 
   @override
-  Future<List<SpaceEntity>> call() => spaceRepository.getAllSpaceEntities();
+  Future<List<SpaceEntity>> call({Type? byType}) =>
+      spaceRepository.getAllSpaceEntities(byType: byType);
 }

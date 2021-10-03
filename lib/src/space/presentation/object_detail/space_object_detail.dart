@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:space_trash/src/space/presentation/overview/store/overview_store.dart';
 
 class SpaceObjectDetail extends StatelessWidget {
+  final store = Modular.get<OverviewStore>();
   final String title;
-  const SpaceObjectDetail({
+  SpaceObjectDetail({
     required this.title,
     Key? key,
   }) : super(key: key);
@@ -16,8 +19,8 @@ class SpaceObjectDetail extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        label: Text('View'),
-        icon: Icon(FeatherIcons.map),
+        label: const Text('View'),
+        icon: const Icon(FeatherIcons.map),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
