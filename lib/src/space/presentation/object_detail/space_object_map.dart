@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class SpaceObjectMap extends StatelessWidget {
   final String title;
@@ -14,9 +13,11 @@ class SpaceObjectMap extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: const Center(
+      body: Center(
         child: Image(
-          image: AssetImage('assets/mockcosmos.png'),
+          image: title.toLowerCase().contains('cosmos')
+              ? const AssetImage('assets/mockcosmos.png')
+              : const AssetImage('assets/mockstarlink.png'),
         ),
       ),
     );
