@@ -1,5 +1,9 @@
 # Satellite Guard
 
+<p align="center">
+<img src="assets/logo.png" alt="logo" width="100"/>
+</p>
+
 This project was developed in [Flutter](https://flutter.dev/) for the challenge of [mapping space trash in real-time](https://2021.spaceappschallenge.org/challenges/statements/mapping-space-trash-in-real-time/details) proposed by [NASA Space Apps Challenge](https://2021.spaceappschallenge.org/]).
 
 ## Features
@@ -9,7 +13,11 @@ This project was developed in [Flutter](https://flutter.dev/) for the challenge 
 - Probability of collision satellite with the space trash.
 ## Screenshots
 
-[App](/assets/app.png)
+![App](/assets/app.png)
+
+## Install app on Android
+
+Install release.apk which is in the root folder
 
 ## Team
 
