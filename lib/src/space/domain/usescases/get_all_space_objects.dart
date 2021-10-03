@@ -3,10 +3,12 @@ import 'package:space_trash/src/space/domain/repositories/space_repository.dart'
 
 class GetAllSpaceObjects {
   final SpaceRepository spaceRepository;
+  final String name;
 
   GetAllSpaceObjects({
     required this.spaceRepository,
+    required this.name,
   });
 
-  List<SpaceObject> call() => spaceRepository.getAllSpaceObjects();
+  Future<List<SpaceObject>> call() => spaceRepository.getAllSpaceObjects(name);
 }
